@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para mi amor 💕</title>
+
+<style>
+body{
+    margin:0;
+    font-family: "Brush Script MT", cursive;
+    background: linear-gradient(135deg, #ff9ecb, #ffc0cb);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.contenedor{
+    background: rgba(255,255,255,0.2);
+    border: 3px solid white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 70%;
+    text-align:center;
+    color: #ff4fa3;
+}
+
+h1{
+    color:white;
+}
+
+p{
+    font-size:20px;
+    font-style: italic;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    color:#ff4fa3;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#mensaje{
+    display:none;
+    margin-top:15px;
+    color:white;
+}
+
+/* corazones */
+.corazon{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:red;
+    transform: rotate(45deg);
+    animation: flotar 6s linear infinite;
+}
+
+.corazon::before,
+.corazon::after{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:red;
+    border-radius:50%;
+}
+
+.corazon::before{
+    top:-10px;
+}
+
+.corazon::after{
+    left:-10px;
+}
+
+@keyframes flotar{
+    0%{
+        transform: translateY(100vh) rotate(45deg);
+        opacity:1;
+    }
+    100%{
+        transform: translateY(-10vh) rotate(45deg);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+    <h1>Para ti, mi amor 💖</h1>
+
+    <p>
+    Desde que llegaste a mi vida, todo cambió de una forma que no sabía que necesitaba.
+    Eres esa calma en medio del ruido, esa sonrisa que aparece incluso en mis días más grises.
+
+    A tu lado aprendí que el amor no es perfecto, pero sí real,
+    que se construye en los pequeños momentos,
+    en las risas, en los silencios, en las miradas que lo dicen todo sin hablar.
+
+    Me haces sentir una paz que nunca había conocido,
+    como si por fin hubiera encontrado mi lugar en el mundo.
+    Y es que no se trata solo de lo que vivimos,
+    sino de lo que siento cuando estoy contigo.
+
+    A veces no encuentro palabras suficientes,
+    porque lo que siento por ti es más grande que cualquier frase.
+    Pero si algo tengo claro es esto:
+    te quiero más de lo que puedo explicar,
+    más de lo que imaginé sentir por alguien,
+    y más de lo que el tiempo podrá borrar.
+
+    Gracias por existir,
+    por llegar a mi vida,
+    y por hacerla más bonita cada día 💕
+    </p>
+
+    <button onclick="mostrarMensaje()">Presióname 💌</button>
+
+    <div id="mensaje">
+        Prometo cuidarte, quererte y estar contigo en todo momento 💖
+    </div>
+</div>
+
+<script>
+function mostrarMensaje(){
+    document.getElementById("mensaje").style.display = "block";
+}
+
+function crearCorazon(){
+    const corazon = document.createElement("div");
+    corazon.classList.add("corazon");
+    corazon.style.left = Math.random() * 100 + "vw";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 6000);
+}
+
+setInterval(crearCorazon, 300);
+</script>
+
+</body>
+</html>
